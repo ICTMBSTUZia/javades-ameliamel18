@@ -1,0 +1,74 @@
+{
+  "tests": [
+    {
+      "name": "Compile DESCipher",
+      "setup": "javac DESCipher.java",
+      "run": "echo 'Compilation successful'",
+      "input": "",
+      "output": "Compilation successful",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 10
+    },
+    {
+      "name": "Test Case 1 - HELLO123 Encryption",
+      "setup": "javac DESCipher.java",
+      "run": "java DESCipher",
+      "input": "",
+      "output": "A21A616C70AFAB9A6738237FA5B0F65E",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 20
+    },
+    {
+      "name": "Test Case 2 - Computer Network Security Encryption",
+      "setup": "javac DESCipher.java",
+      "run": "java DESCipher",
+      "input": "",
+      "output": "3A1C6C41ED0B0497890E7DFCA039FAFA1A288EA2E8A3248D78DC6B23174DC2BE",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 20
+    },
+    {
+      "name": "Test Case 3 - DES Algorithm Test 2026! Encryption",
+      "setup": "javac DESCipher.java",
+      "run": "java DESCipher",
+      "input": "",
+      "output": "F3BF3CA7C558199E17264408F78409BC5C7D04671BE5E9296738237FA5B0F65E",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 20
+    },
+    {
+      "name": "Test Case 1 - HELLO123 Decryption",
+      "setup": "javac DESCipher.java",
+      "run": "java DESCipher",
+      "input": "",
+      "output": "HELLO123",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 10
+    },
+    {
+      "name": "Test Case 2 - Computer Network Security Decryption",
+      "setup": "javac DESCipher.java",
+      "run": "java DESCipher",
+      "input": "",
+      "output": "Computer Network Security",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 10
+    },
+    {
+      "name": "Test Case 3 - DES Algorithm Test 2026! Decryption",
+      "setup": "javac DESCipher.java",
+      "run": "java DESCipher",
+      "input": "",
+      "output": "DES Algorithm Test 2026!",
+      "comparison": "included",
+      "timeout": 30,
+      "points": 10
+    }
+  ]
+}

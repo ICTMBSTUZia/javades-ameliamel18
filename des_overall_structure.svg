@@ -1,0 +1,84 @@
+<svg viewBox="0 0 720 670" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#374151"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#047857"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="720" height="670" fill="#ffffff"/>
+
+  <text x="360" y="26" text-anchor="middle" font-size="18" font-weight="700" fill="#111827">DES Encryption — Overall Structure</text>
+  <text x="360" y="44" text-anchor="middle" font-size="12" fill="#6b7280">(Diagram 1 of 2 — see Diagram 2 for the Round Function and Key Schedule detail)</text>
+
+  <!-- Plaintext -->
+  <rect x="210" y="60" width="300" height="40" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="360" y="85" text-anchor="middle" font-size="14" fill="#78350f">64-bit Plaintext Block</text>
+  <line x1="360" y1="100" x2="360" y2="118" stroke="#374151" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+  <!-- IP -->
+  <rect x="210" y="120" width="300" height="40" rx="8" fill="#e0e7ff" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="360" y="145" text-anchor="middle" font-size="14" fill="#312e81">Initial Permutation (IP)</text>
+  <line x1="360" y1="160" x2="360" y2="178" stroke="#374151" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+  <!-- L0 / R0 -->
+  <rect x="210" y="180" width="140" height="40" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="280" y="205" text-anchor="middle" font-size="13" fill="#78350f">L0 (32-bit)</text>
+  <rect x="370" y="180" width="140" height="40" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="440" y="205" text-anchor="middle" font-size="13" fill="#78350f">R0 (32-bit)</text>
+
+  <!-- merge lines into round 1 -->
+  <path d="M280,220 L280,240 L360,240" fill="none" stroke="#374151" stroke-width="1.5"/>
+  <path d="M440,220 L440,240 L360,240" fill="none" stroke="#374151" stroke-width="1.5"/>
+  <line x1="360" y1="240" x2="360" y2="258" stroke="#374151" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+  <!-- Round 1 -->
+  <rect x="210" y="260" width="300" height="60" rx="8" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.5"/>
+  <text x="360" y="282" text-anchor="middle" font-size="14" font-weight="700" fill="#4c1d95">Round 1</text>
+  <text x="360" y="300" text-anchor="middle" font-size="12" fill="#4c1d95">R1 = L0 ⊕ f(R0, K1) ;  L1 = R0</text>
+  <line x1="620" y1="290" x2="515" y2="290" stroke="#047857" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowGreen)"/>
+  <text x="625" y="286" font-size="12" fill="#047857">K1</text>
+  <text x="625" y="300" font-size="10" fill="#6b7280">(from Key Schedule —</text>
+  <text x="625" y="312" font-size="10" fill="#6b7280">see Diagram 2)</text>
+
+  <!-- repeat arrow -->
+  <line x1="360" y1="320" x2="360" y2="368" stroke="#374151" stroke-width="1.5" marker-end="url(#arrow1)"/>
+  <text x="520" y="348" text-anchor="start" font-size="12" font-style="italic" fill="#6b7280">⋮ rounds 2 – 15 repeat ⋮</text>
+
+  <!-- Round 16 -->
+  <rect x="210" y="370" width="300" height="60" rx="8" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.5"/>
+  <text x="360" y="392" text-anchor="middle" font-size="14" font-weight="700" fill="#4c1d95">Round 16</text>
+  <text x="360" y="410" text-anchor="middle" font-size="12" fill="#4c1d95">R16 = L15 ⊕ f(R15, K16) ;  L16 = R15</text>
+  <line x1="620" y1="400" x2="515" y2="400" stroke="#047857" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrowGreen)"/>
+  <text x="625" y="396" font-size="12" fill="#047857">K16</text>
+
+  <line x1="360" y1="430" x2="360" y2="448" stroke="#374151" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+  <!-- Swap -->
+  <rect x="210" y="450" width="300" height="40" rx="8" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+  <text x="360" y="475" text-anchor="middle" font-size="13" fill="#78350f">32-bit Swap → combine as R16 ‖ L16</text>
+  <line x1="360" y1="490" x2="360" y2="508" stroke="#374151" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+  <!-- FP -->
+  <rect x="210" y="510" width="300" height="40" rx="8" fill="#e0e7ff" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="360" y="535" text-anchor="middle" font-size="14" fill="#312e81">Final Permutation (FP = IP⁻¹)</text>
+  <line x1="360" y1="550" x2="360" y2="568" stroke="#374151" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+  <!-- Ciphertext -->
+  <rect x="210" y="570" width="300" height="40" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="360" y="595" text-anchor="middle" font-size="14" fill="#78350f">64-bit Ciphertext Block</text>
+
+  <!-- legend -->
+  <g font-size="11" fill="#374151">
+    <rect x="20" y="625" width="14" height="14" fill="#fef3c7" stroke="#b45309"/>
+    <text x="38" y="636">Data block</text>
+    <rect x="20" y="645" width="14" height="14" fill="#e0e7ff" stroke="#4338ca"/>
+    <text x="38" y="656">Permutation step</text>
+    <rect x="190" y="625" width="14" height="14" fill="#ede9fe" stroke="#6d28d9"/>
+    <text x="208" y="636">Feistel round</text>
+    <line x1="190" y1="652" x2="204" y2="652" stroke="#047857" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="208" y="656">Subkey from Key Schedule</text>
+  </g>
+</svg>
